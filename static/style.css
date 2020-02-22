@@ -1,0 +1,147 @@
+:root {
+  --darkBlue: #66ccfd;
+  --lightBlue: #8fd6f6;
+  --darkOrange: #d36185;
+  --lightOrange: #f9d067;
+  --darkPurple: #472097;
+  --lightPurple: #b75aba;
+  --bgColor: #f1f3f5;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  background-color: var(--bgColor);
+}
+
+nav {
+  height: 50px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #fff;
+}
+nav h3 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #495057;
+}
+
+input {
+  margin: 0 50px 0 20px;
+  padding: 0 20px;
+  height: 34px;
+  width: 300px;
+  font-size: 13px;
+  color: #495057;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--bgColor);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+#showcase {
+  width: 700px;
+  height: 500px;
+  margin-top: -50px;
+}
+
+#showcase-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50%;
+  padding: 20px;
+  background: linear-gradient(180deg, #020024 0%, #66ccfd 0%, #8fd6f6 100%);
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 15px 15px 0 0;
+}
+#showcase-top #stats {
+  text-align: center;
+}
+#showcase-top #stats h1 {
+  font-size: 75px;
+  margin-top: 15px;
+}
+#showcase-top #stats #stats-secondary {
+  display: flex;
+  margin-top: 20px;
+}
+#showcase-top #stats #stats-secondary #humidity {
+  border-right: 1px solid #fff;
+  padding: 5px 15px;
+}
+#showcase-top #stats #stats-secondary #wind {
+  padding: 5px 15px;
+}
+#showcase-top #stats #stats-secondary p {
+  font-size: 14px;
+}
+#showcase-top #stats-third {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+#showcase-top #stats-third canvas {
+  height: 128px;
+  width: 128px;
+  margin: 35px 250px 0 0;
+}
+
+#showcase-bottom {
+  height: 50%;
+  border-radius: 0 0 15px 15px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+}
+
+#todo {
+  width: 35%;
+  border-right: 2px solid #cddae6;
+}
+
+#forecast {
+  width: 65%;
+  display: flex;
+  flex-direction: row;
+  color: #495057;
+}
+#forecast div {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+#forecast div canvas {
+  width: 45px;
+  height: 45px;
+  margin: 25px auto;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -4,22 +4,79 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>The Weather Now</title>
+		<!-- Google Fonts: Nunito -->
 		<link
-			href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+			href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="style.css" />
+		<!-- Main CSS -->
 		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+		<!-- Media Queries -->
+		<!-- <link
 			rel="stylesheet"
 			media="screen and (max-width: 768px)"
-			href="mobile.css"
-		/>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js"></script>
+			href="{{ url_for('static', filename='mobile.css') }}"
+      /> -->
+		<!-- Skycons link -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.js"></script>
 	</head>
+
 	<body>
+		<nav>
+			<h3>Enter Location</h3>
+			<input type="text" id="search" />
+		</nav>
+		<div class="container">
+			<div id="showcase">
+				<div id="showcase-top">
+					<div id="stats">
+						<h1 id="temperature">- °</h1>
+						<h3 id="conditions">-</h3>
+						<div>
+							<div id="stats-secondary">
+								<div id="humidity">
+									<p>Humidity</p>
+									<h4>-</h4>
+								</div>
+								<div id="wind">
+									<p>Wind</p>
+									<h4>-</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="stats-third">
+						<h3 id="location"></h3>
+						<canvas id="icon-main" width="128" height="128"></canvas>
+					</div>
+				</div>
+
+				<div id="showcase-bottom">
+					<div id="todo"></div>
+
+					<div id="forecast">
+						<div id="day-1">
+							<h3>-</h3>
+							<canvas id="icon-1" width="65" height="65"></canvas>
+							<h3>-</h3>
+						</div>
+						<div id="day-2"></div>
+						<div id="day-3"></div>
+						<div id="day-4"></div>
+						<div id="day-5"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Google Maps API link -->
 		<script
 			type="text/javascript"
 			src="https://maps.googleapis.com/maps/api/js?key={{ gmapsKey }}&libraries=places"
 		></script>
+		<script src="{{url_for('static', filename='ui.js')}}"></script>
+		<script src="{{url_for('static', filename='application.js')}}"></script>
 	</body>
 </html>
