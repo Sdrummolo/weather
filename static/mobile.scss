@@ -1,0 +1,48 @@
+nav {
+	background-color: transparent;
+	h3 {
+		display: none;
+	}
+
+	input {
+		width: 100%;
+		margin: auto;
+	}
+}
+
+#main {
+	margin: auto;
+}
+#showcase {
+	flex-direction: column;
+	border-right: none;
+
+	#showcase-left {
+		border-right: none;
+		width: 100%;
+		border-bottom: 1px solid #fff;
+		justify-content: space-evenly;
+		margin: auto;
+		padding: 20px;
+	}
+}
+
+#showcase-right {
+	margin: auto;
+	width: 100%;
+
+	div {
+		padding: 20px;
+	}
+}
+
+#forecast {
+	div {
+		width: 110px;
+	}
+	#day-4,
+	#day-5,
+	#day-6 {
+		display: none;
+	}
+}

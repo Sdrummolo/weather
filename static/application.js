@@ -1,9 +1,8 @@
-const search = document.getElementById("search");
+const search = document.querySelector("input");
 // Initialize ui
 const ui = new UI();
 let geocoder;
 
-// To put in env variable
 const DARKSKYAPIKEY = "a542b5ae979df6d58aab3d3e74f11164";
 
 // google autocomplete stuff
@@ -23,7 +22,7 @@ function getCoords() {
 				const lat = result[0].geometry.location.lat();
 				const lng = result[0].geometry.location.lng();
 
-				return getWeather(lat, lng);
+				getWeather(lat, lng);
 			} else {
 				alert(
 					"Geocode was not successful for the following reason: " + status
@@ -40,6 +39,8 @@ async function getWeather(lat, lng) {
 			`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${DARKSKYAPIKEY}/${lat},${lng}?units=si`
 		);
 		let data = await request.json();
+
+		console.log(data);
 
 		getSunState(data);
 		ui.showCurrentWeather(data);

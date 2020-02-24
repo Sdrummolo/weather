@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>The Weather Now</title>
+		<!-- Google Fonts: Open Sans -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- Main CSS -->
+		<link rel="stylesheet" href="/static/style.css" />
+		<!-- Media Queries -->
+		<link
+			rel="stylesheet"
+			media="screen and (max-width: 768px)"
+			href="/static/mobile.css"
+		/>
+		<!-- Skycons link -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.js"></script>
+	</head>
+
+	<body>
+		<nav>
+			<h3>Enter a Location</h3>
+			<input type="text" />
+		</nav>
+		<div class="container">
+			<!-- Top part -->
+			<div id="main">
+				<div id="location">
+					<h1 id="loc">-</h1>
+					<h4 id="date">-</h4>
+				</div>
+				<div id="showcase">
+					<div id="showcase-left">
+						<div id="canvas">
+							<canvas
+								id="icon-main"
+								height="170px"
+								width="170px"
+							></canvas>
+						</div>
+						<div>
+							<h1 id="temperature">-</h1>
+							<h3 id="conditions">-</h3>
+						</div>
+					</div>
+
+					<!-- Stats -->
+					<div id="showcase-right">
+						<div>
+							<h3>High</h3>
+							<p id="high">-</p>
+						</div>
+
+						<div>
+							<h3>Low</h3>
+							<p id="low">-</p>
+						</div>
+						<div>
+							<h3>Rain</h3>
+							<p id="rain">-</p>
+						</div>
+
+						<div>
+							<h3>Wind</h3>
+							<p id="wind">-</p>
+						</div>
+						<div>
+							<h3>Humidity</h3>
+							<p id="humidity">-</p>
+						</div>
+
+						<div>
+							<h3>Feels like</h3>
+							<p id="feels">-</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Forecast -->
+			<div id="showcase-bottom">
+				<h2>Forecast</h2>
+				<div id="forecast">
+					<div id="day-1">
+						<h3>-</h3>
+						<canvas height="70px" width="70px"></canvas>
+						<h3>-</h3>
+					</div>
+					<div id="day-2">
+						<h3>-</h3>
+						<canvas height="70px" width="70px"></canvas>
+						<h3>-</h3>
+					</div>
+					<div id="day-3">
+						<h3>-</h3>
+						<canvas height="70px" width="70px"></canvas>
+						<h3>-</h3>
+					</div>
+					<div id="day-4">
+						<h3>-</h3>
+						<canvas height="70px" width="70px"></canvas>
+
+						<h3>-</h3>
+					</div>
+					<div id="day-5">
+						<h3>-</h3>
+						<canvas height="70px" width="70px"></canvas>
+						<h3>-</h3>
+					</div>
+					<div id="day-6">
+						<h3>-</h3>
+						<canvas height="70px" width="70px"></canvas>
+						<h3>-</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Google Maps API link -->
+		<script
+			type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMdvEyuNCCRTedIBxZKUf9pnvlL7bgk-g&libraries=places"
+		></script>
+		<script src="static/ui.js"></script>
+		<script src="static/application.js"></script>
+	</body>
+</html>

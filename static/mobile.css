@@ -1,0 +1,46 @@
+nav {
+  background-color: transparent;
+}
+nav h3 {
+  display: none;
+}
+nav input {
+  width: 100%;
+  margin: auto;
+}
+
+#main {
+  margin: auto;
+}
+
+#showcase {
+  flex-direction: column;
+  border-right: none;
+}
+#showcase #showcase-left {
+  border-right: none;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  justify-content: space-evenly;
+  margin: auto;
+  padding: 20px;
+}
+
+#showcase-right {
+  margin: auto;
+  width: 100%;
+}
+#showcase-right div {
+  padding: 20px;
+}
+
+#forecast div {
+  width: 110px;
+}
+#forecast #day-4,
+#forecast #day-5,
+#forecast #day-6 {
+  display: none;
+}
+
+/*# sourceMappingURL=mobile.css.map */
