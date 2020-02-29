@@ -11,10 +11,6 @@ button:focus {
   outline: none;
 }
 
-input {
-  font-size: 100%;
-}
-
 body {
   font-family: "Open Sans", sans-serif;
   background: linear-gradient(180deg, #020024 0%, #66ccfd 0%, #8fd6f6 100%);
@@ -41,7 +37,7 @@ input {
   padding: 0 20px;
   height: 34px;
   width: 300px;
-  font-size: 13px;
+  font-size: 16px;
   color: #495057;
   border-radius: 50px;
   border: none;
