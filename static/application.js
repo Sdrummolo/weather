@@ -5,12 +5,24 @@ let geocoder;
 
 const DARKSKYAPIKEY = "a542b5ae979df6d58aab3d3e74f11164";
 
-// google autocomplete stuff
+// google autocomplete
 const autocomplete = new google.maps.places.Autocomplete(search);
 google.maps.event.addDomListener(window, "load");
 
 search.addEventListener("change", getCoords);
 
+// Fetch user location weather
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(position => {
+		const lat = position.coords.latitude;
+		const lng = position.coords.longitude;
+
+		getWeather(lat, lng);
+		getCurrentLocation(lat, lng);
+	});
+}
+
+// Get coordinates of searchbar input
 function getCoords() {
 	event.preventDefault();
 
@@ -21,8 +33,9 @@ function getCoords() {
 			if (status == "OK") {
 				const lat = result[0].geometry.location.lat();
 				const lng = result[0].geometry.location.lng();
+				getCurrentLocation(lat, lng);
 
-				getWeather(lat, lng);
+				return getWeather(lat, lng);
 			} else {
 				alert(
 					"Geocode was not successful for the following reason: " + status
@@ -40,8 +53,6 @@ async function getWeather(lat, lng) {
 		);
 		let data = await request.json();
 
-		console.log(data);
-
 		getSunState(data);
 		ui.showCurrentWeather(data);
 		ui.showForecast(data);
@@ -51,7 +62,6 @@ async function getWeather(lat, lng) {
 }
 
 // Determine sun state, day returns 2, nigh returns 1 and evening returns 3
-// Time changes according to timezone
 function getSunState(data) {
 	const currentTime = data.currently.time;
 	const sunriseTime = data.daily.data[0].sunriseTime;
@@ -73,5 +83,24 @@ function getSunState(data) {
 		return ui.changeBgColor(3);
 	} else {
 		return ui.changeBgColor(2);
+	}
+}
+
+async function getCurrentLocation(lat, lng) {
+	try {
+		let request = await fetch(
+			"https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
+				lat +
+				"," +
+				lng +
+				"&key=" +
+				"AIzaSyCMdvEyuNCCRTedIBxZKUf9pnvlL7bgk-g"
+		);
+
+		let data = await request.json();
+
+		ui.showCurrentLocation(data);
+	} catch (err) {
+		console.log(err);
 	}
 }

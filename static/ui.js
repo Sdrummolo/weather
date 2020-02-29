@@ -22,8 +22,6 @@ class UI {
 
 	// Populate top part of UI with data
 	showCurrentWeather(data) {
-		console.log(data);
-		this.location.textContent = this.input.value;
 		this.date.textContent = new Date(
 			data.currently.time * 1000
 		).toDateString();
@@ -37,7 +35,8 @@ class UI {
 		this.wind.textContent = Math.round(data.currently.windSpeed) + "km/h";
 		this.low.textContent =
 			Math.round(data.daily.data[0].temperatureLow) + "°";
-		this.humidity.textContent = data.currently.humidity * 100 + "%";
+		this.humidity.textContent =
+			Math.round(data.currently.humidity * 100) + "%";
 		this.feels.textContent =
 			Math.round(data.currently.apparentTemperature) + "°";
 
@@ -102,5 +101,9 @@ class UI {
 			icons[i].set(`icon-${i + 1}`, data.daily.data[i + 1].icon);
 			icons[i].play();
 		}
+	}
+
+	showCurrentLocation(data) {
+		this.location.textContent = data.results[4].formatted_address;
 	}
 }

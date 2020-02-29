@@ -1,0 +1,47 @@
+.container {
+  max-width: 90%;
+}
+
+nav {
+  background-color: transparent;
+}
+nav h3 {
+  display: none;
+}
+nav input {
+  width: 100%;
+  margin: auto;
+}
+
+#main {
+  margin: auto;
+}
+
+#showcase {
+  flex-direction: column;
+  border-right: none;
+}
+#showcase #showcase-left {
+  border-right: none;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  justify-content: space-evenly;
+}
+
+#showcase-right {
+  margin: auto;
+  width: 100%;
+}
+#showcase-right div {
+  padding: 20px;
+}
+
+#forecast div {
+  width: 110px;
+}
+#forecast #day-5,
+#forecast #day-6 {
+  display: none;
+}
+
+/*# sourceMappingURL=tablet.css.map */

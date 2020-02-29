@@ -1,3 +1,7 @@
+.container {
+	max-width: 90%;
+}
+
 nav {
 	background-color: transparent;
 	h3 {
@@ -22,8 +26,6 @@ nav {
 		width: 100%;
 		border-bottom: 1px solid #fff;
 		justify-content: space-evenly;
-		margin: auto;
-		padding: 20px;
 	}
 }
 
@@ -40,7 +42,6 @@ nav {
 	div {
 		width: 110px;
 	}
-	#day-4,
 	#day-5,
 	#day-6 {
 		display: none;
