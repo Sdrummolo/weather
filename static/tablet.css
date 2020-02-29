@@ -36,9 +36,6 @@ nav input {
   padding: 20px;
 }
 
-#forecast div {
-  width: 110px;
-}
 #forecast #day-5,
 #forecast #day-6 {
   display: none;

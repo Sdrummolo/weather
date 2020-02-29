@@ -107,7 +107,7 @@ input {
 #showcase-bottom #forecast div {
   text-align: center;
   background: rgba(0, 0, 0, 0.05);
-  padding: 30px;
+  padding: 20px;
 }
 #showcase-bottom #forecast div canvas {
   margin: 15px 0;
