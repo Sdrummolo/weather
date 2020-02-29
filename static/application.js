@@ -23,7 +23,6 @@ if (navigator.geolocation) {
 // Get coordinates of searchbar input
 async function getCoords() {
 	let address = search.value;
-	console.log(address);
 
 	if (address != "") {
 		try {
