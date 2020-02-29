@@ -12,6 +12,11 @@ button:focus {
 	outline: none;
 }
 
+// Fixed zoom in on input on iphones
+input {
+	font-size: 100%;
+}
+
 body {
 	font-family: "Open Sans", sans-serif;
 	min-height: 100vh;
