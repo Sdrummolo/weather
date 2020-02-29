@@ -1,8 +1,9 @@
 #showcase-bottom #forecast div {
-   padding: 10px;
+	padding: 10px;
 }
 
 #day-4,
 #day-5,
-	#day-6 {
-		display: none;
+#day-6 {
+	display: none;
+}

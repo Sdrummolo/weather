@@ -1,9 +1,11 @@
 const search = document.querySelector("input");
+
 // Initialize ui
 const ui = new UI();
 let geocoder;
 
 const DARKSKYAPIKEY = "a542b5ae979df6d58aab3d3e74f11164";
+const GOOGLEAPIKEY = "AIzaSyCMdvEyuNCCRTedIBxZKUf9pnvlL7bgk-g";
 
 // google autocomplete
 const autocomplete = new google.maps.places.Autocomplete(search);
@@ -18,7 +20,6 @@ if (navigator.geolocation) {
 		const lng = position.coords.longitude;
 
 		getWeather(lat, lng);
-		getCurrentLocation(lat, lng);
 	});
 }
 
@@ -33,9 +34,9 @@ function getCoords() {
 			if (status == "OK") {
 				const lat = result[0].geometry.location.lat();
 				const lng = result[0].geometry.location.lng();
-				getCurrentLocation(lat, lng);
 
-				return getWeather(lat, lng);
+				getWeather(lat, lng);
+				getCurrentLocation(lat, lng);
 			} else {
 				alert(
 					"Geocode was not successful for the following reason: " + status
@@ -47,22 +48,30 @@ function getCoords() {
 
 // Call weather API
 async function getWeather(lat, lng) {
+	// Fetch user's location data
 	try {
-		let request = await fetch(
+		let locationRequest = await fetch(
+			`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${GOOGLEAPIKEY}`
+		);
+		// Fetch weather data
+		let weatherRequest = await fetch(
 			`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${DARKSKYAPIKEY}/${lat},${lng}?units=si`
 		);
-		let data = await request.json();
 
-		getSunState(data);
-		ui.showCurrentWeather(data);
-		ui.showForecast(data);
+		let locationData = await locationRequest.json();
+		let weatherData = await weatherRequest.json();
+
+		changeBG(weatherData);
+		ui.showCurrentLocation(locationData);
+		ui.showCurrentWeather(weatherData);
+		ui.showForecast(weatherData);
 	} catch (err) {
 		console.log(err);
 	}
 }
 
 // Determine sun state, day returns 2, nigh returns 1 and evening returns 3
-function getSunState(data) {
+function changeBG(data) {
 	const currentTime = data.currently.time;
 	const sunriseTime = data.daily.data[0].sunriseTime;
 	const sunriseTimeTom = data.daily.data[1].sunriseTime;
@@ -83,24 +92,5 @@ function getSunState(data) {
 		return ui.changeBgColor(3);
 	} else {
 		return ui.changeBgColor(2);
-	}
-}
-
-async function getCurrentLocation(lat, lng) {
-	try {
-		let request = await fetch(
-			"https://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-				lat +
-				"," +
-				lng +
-				"&key=" +
-				"AIzaSyCMdvEyuNCCRTedIBxZKUf9pnvlL7bgk-g"
-		);
-
-		let data = await request.json();
-
-		ui.showCurrentLocation(data);
-	} catch (err) {
-		console.log(err);
 	}
 }
