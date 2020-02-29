@@ -1,17 +1,14 @@
 const search = document.querySelector("input");
-
+// initialize google autocomplete
+const autocomplete = new google.maps.places.Autocomplete(search);
 // Initialize ui
 const ui = new UI();
-let geocoder;
-
+// API keys
 const DARKSKYAPIKEY = "a542b5ae979df6d58aab3d3e74f11164";
 const GOOGLEAPIKEY = "AIzaSyCMdvEyuNCCRTedIBxZKUf9pnvlL7bgk-g";
 
-// google autocomplete
-const autocomplete = new google.maps.places.Autocomplete(search);
-google.maps.event.addDomListener(window, "load");
-
-search.addEventListener("change", getCoords);
+// Google proprietary event handler
+autocomplete.addListener("place_changed", getCoords);
 
 // Fetch user location weather
 if (navigator.geolocation) {
@@ -24,25 +21,24 @@ if (navigator.geolocation) {
 }
 
 // Get coordinates of searchbar input
-function getCoords() {
-	event.preventDefault();
+async function getCoords() {
+	let address = search.value;
+	console.log(address);
 
-	geocoder = new google.maps.Geocoder();
+	if (address != "") {
+		try {
+			let coordsRequest = await fetch(
+				`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${GOOGLEAPIKEY}`
+			);
+			let coordsData = await coordsRequest.json();
 
-	if (search.value !== "") {
-		geocoder.geocode({ address: search.value }, (result, status) => {
-			if (status == "OK") {
-				const lat = result[0].geometry.location.lat();
-				const lng = result[0].geometry.location.lng();
+			let lat = coordsData.results[0].geometry.location.lat;
+			let lng = coordsData.results[0].geometry.location.lng;
 
-				getWeather(lat, lng);
-				getCurrentLocation(lat, lng);
-			} else {
-				alert(
-					"Geocode was not successful for the following reason: " + status
-				);
-			}
-		});
+			getWeather(lat, lng);
+		} catch (err) {
+			console.log(err);
+		}
 	}
 }
 

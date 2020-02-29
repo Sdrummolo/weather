@@ -62,14 +62,12 @@ class UI {
 				rgba(64,102,167,1) 0%, 
 				rgba(202,167,166,1) 100%
 				)`;
-			console.log(phase);
 		} else if (phase === 3) {
 			this.body.style.background = `linear-gradient(
             180deg, rgba(2,0,36,1) 0%, 
             rgba(211,97,133,1) 0%, 
             rgba(249,208,103,1) 100%
 				)`;
-			console.log(phase);
 		}
 	}
 
@@ -104,6 +102,7 @@ class UI {
 	}
 
 	showCurrentLocation(data) {
-		this.location.textContent = data.results[4].formatted_address;
+		console.log(data);
+		this.location.textContent = data.results[5].formatted_address;
 	}
 }
