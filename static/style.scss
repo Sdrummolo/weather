@@ -12,10 +12,13 @@ button:focus {
 	outline: none;
 }
 
+// Fixed zoom in on input on iphones
+input {
+	font-size: 100%;
+}
+
 body {
 	font-family: "Open Sans", sans-serif;
-	min-height: 100vh;
-	overflow: hidden;
 
 	background: linear-gradient(
 		180deg,
@@ -49,7 +52,7 @@ input {
 	padding: 0 20px;
 	height: 34px;
 	width: 300px;
-	font-size: 16px;
+	font-size: 13px;
 	color: #495057;
 	border-radius: 50px;
 	border: none;
