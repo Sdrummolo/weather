@@ -11,9 +11,14 @@ button:focus {
   outline: none;
 }
 
+input {
+  font-size: 100%;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   min-height: 100vh;
+  overflow: hidden;
   background: linear-gradient(180deg, #020024 0%, #66ccfd 0%, #8fd6f6 100%);
   color: #fff;
 }
@@ -73,12 +78,19 @@ input {
   justify-content: space-evenly;
   margin: auto;
 }
-#showcase #showcase-left h3 {
-  margin-top: -20px;
+#showcase #showcase-left #showcase-left-canvas {
+  padding: 10px;
 }
-#showcase #showcase-left h1 {
+#showcase #showcase-left #showcase-left-stats {
+  padding: 10px;
+  text-align: center;
+}
+#showcase #showcase-left #showcase-left-stats h1 {
   font-size: 110px;
   font-weight: 300;
+}
+#showcase #showcase-left #showcase-left-stats h3 {
+  margin-top: -20px;
 }
 #showcase #showcase-right {
   display: grid;

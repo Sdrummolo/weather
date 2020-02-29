@@ -89,14 +89,22 @@ input {
 		justify-content: space-evenly;
 		margin: auto;
 
-		h3 {
-			margin-top: -20px;
+		#showcase-left-canvas {
+			padding: 10px;
 		}
 
-		h1 {
-			// margin-top: -20px;
-			font-size: 110px;
-			font-weight: 300;
+		#showcase-left-stats {
+			padding: 10px;
+			text-align: center;
+
+			h1 {
+				// margin-top: -20px;
+				font-size: 110px;
+				font-weight: 300;
+			}
+			h3 {
+				margin-top: -20px;
+			}
 		}
 	}
 
