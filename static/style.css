@@ -13,6 +13,7 @@ button:focus {
 
 body {
   font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
   background: linear-gradient(180deg, #020024 0%, #66ccfd 0%, #8fd6f6 100%);
   color: #fff;
 }
