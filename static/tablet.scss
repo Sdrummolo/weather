@@ -1,46 +1,46 @@
 .container {
-	// max-width: 90%;
+   // max-width: 90%;
 }
 
 nav {
-	background-color: transparent;
-	h3 {
-		display: none;
-	}
+   background-color: transparent;
+   h3 {
+      display: none;
+   }
 
-	input {
-		width: 100%;
-		margin: auto;
-	}
+   input {
+      width: 100%;
+      margin: auto;
+   }
 }
 
 #main {
-	margin: auto;
+   margin: auto;
 }
 #showcase {
-	flex-direction: column;
-	border-right: none;
+   flex-direction: column;
+   border-right: none;
 
-	#showcase-left {
-		border-right: none;
-		width: 100%;
-		border-bottom: 1px solid #fff;
-		justify-content: space-evenly;
-	}
+   #showcase-left {
+      border-right: none;
+      width: 100%;
+      border-bottom: 1px solid #fff;
+      justify-content: space-evenly;
+   }
 }
 
 #showcase-right {
-	margin: auto;
-	width: 100%;
+   margin: auto;
+   width: 100%;
 
-	div {
-		padding: 20px;
-	}
+   div {
+      padding: 20px;
+   }
 }
 
 #forecast {
-	#day-5,
-	#day-6 {
-		display: none;
-	}
+   #day-5,
+   #day-6 {
+      display: none;
+   }
 }
